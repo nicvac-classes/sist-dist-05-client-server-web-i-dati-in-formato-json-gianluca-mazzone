@@ -1,2 +1,48 @@
 
 <!-- INSERIRE QUI IL CODICE INDICATO NELL'ESERCIZIO -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestione Studenti</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="w3-container">
+        <h2 class="w3-text-blue">Lista Studenti</h2>
+        
+        <!-- Tabella Studenti -->
+        <table class="w3-table-all w3-card-4 w3-margin-bottom">
+            <tr class="w3-blue">
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Crediti</th>
+            </tr>
+            <% studenti.forEach(function(s) { %>
+                <tr>
+                    <td><%= s.id %></td>
+                    <td><%= s.nome %></td>
+                    <td><%= s.crediti %></td>
+                </tr>
+            <% }); %>
+        </table>
+
+        <!-- Form Nuovo Studente -->
+        <form action="/aggiungi-studente" method="POST" 
+              class="w3-container w3-card-4 w3-margin">
+            <h3>Aggiungi Nuovo Studente</h3>
+            
+            <label class="w3-text-blue">Nome</label>
+            <input class="w3-input w3-border" type="text" 
+                   name="nome" required>
+            
+            <label class="w3-text-blue">Crediti</label>
+            <input class="w3-input w3-border" type="number" 
+                   name="crediti" min="0" max="100" required>
+            
+            <button class="w3-btn w3-blue w3-margin-top" 
+                    type="submit">Aggiungi</button>
+        </form>
+    </div>
+</body>
+</html>
